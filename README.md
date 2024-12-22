@@ -1,47 +1,59 @@
-<div align="center">
-<img alt="Portfolio" src="https://github.com/dillionverma/portfolio/assets/16860528/57ffca81-3f0a-4425-b31d-094f61725455" width="90%">
-</div>
+# Aladdin Kanngo's Portfolio
 
-# Portfolio [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdillionverma%2Fportfolio)
+A modern, responsive portfolio website showcasing my work as a Full-stack Developer. The site features an interactive design with floating polygons, dynamic animations, and a comprehensive overview of my professional experience and projects.
 
-Built with next.js, [shadcn/ui](https://ui.shadcn.com/), and [magic ui](https://magicui.design/), deployed on Vercel.
+## Features
 
-# Features
+- Interactive UI with floating polygons and smooth animations
+- Dark/Light theme support with custom SVG illustrations
+- Responsive design optimized for all devices
+- Project showcase with detailed case studies
+- Custom font integration (Le Murmure)
+- Accessibility-focused development (WCAG compliant)
 
-- Setup only takes a few minutes by editing the [single config file](./src/data/resume.tsx)
-- Built using Next.js 14, React, Typescript, Shadcn/UI, TailwindCSS, Framer Motion, Magic UI
-- Includes a blog
-- Responsive for different devices
-- Optimized for Next.js and Vercel
+## Tech Stack
 
-# Getting Started Locally
+- **Framework**: Next.js 14
+- **Language**: TypeScript
+- **Styling**: TailwindCSS, Shadcn/UI
+- **Animations**: Framer Motion
+- **Deployment**: Vercel
+- **UI Components**: Custom components with modern design patterns
 
-1. Clone this repository to your local machine:
+## Projects Showcase
 
+The portfolio highlights my work on several significant projects:
+
+- Stockholm Business Region (React, WebGL, ThreeJS)
+- Royal Swedish Academy of Sciences (WordPress, Multi-site Architecture)
+- Swedish Breast Cancer Association (Wagtail, Django, Next.js)
+- Mentor Sweden (WordPress, Salesforce Integration)
+
+## Local Development
+
+1. Clone the repository:
    ```bash
-   git clone https://github.com/dillionverma/portfolio
+   git clone https://github.com/alkanngo/portfolio
    ```
 
-2. Move to the cloned directory
-
+2. Install dependencies:
    ```bash
-   cd portfolio
+   npm install
    ```
 
-3. Install dependencies:
-
+3. Start the development server:
    ```bash
-   pnpm install
+   npm run dev
    ```
 
-4. Start the local Server:
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-   ```bash
-   pnpm dev
-   ```
+## Contact
 
-5. Open the [Config file](./src/data/resume.tsx) and make changes
+- Email: kanngo.aladdin@gmail.com
+- LinkedIn: [Aladdin Kanngo](https://www.linkedin.com/in/aladdin-kanngo/)
+- GitHub: [alkanngo](https://github.com/alkanngo)
 
-# License
+## License
 
-Licensed under the [MIT license](https://github.com/dillionverma/portfolio/blob/main/LICENSE.md).
+This project is licensed under the MIT License.
