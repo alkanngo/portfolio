@@ -23,8 +23,59 @@ interface Polygon {
   baseY: number;
 }
 
-const REPULSION_DISTANCE = 200; // Distance at which polygons start being repelled
-const REPULSION_STRENGTH = 100; // Strength of the repulsion force
+const REPULSION_DISTANCE = 200;
+const REPULSION_STRENGTH = 100;
+const MIN_DISTANCE = 150; // Minimum distance between polygons
+
+const useMediaQuery = (query: string) => {
+  const [matches, setMatches] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia(query);
+    if (media.matches !== matches) {
+      setMatches(media.matches);
+    }
+    const listener = () => setMatches(media.matches);
+    media.addEventListener('change', listener);
+    return () => media.removeEventListener('change', listener);
+  }, [matches, query]);
+
+  return matches;
+};
+
+const generatePolygonPosition = (
+  width: number,
+  height: number,
+  existingPolygons: Polygon[],
+  padding: number = 50
+): { x: number; y: number } => {
+  let attempts = 0;
+  const maxAttempts = 50;
+  
+  while (attempts < maxAttempts) {
+    const x = padding + Math.random() * (width - 2 * padding);
+    const y = padding + Math.random() * (height - 2 * padding);
+    
+    // Check distance from all existing polygons
+    const isFarEnough = existingPolygons.every(polygon => {
+      const dx = polygon.x - x;
+      const dy = polygon.y - y;
+      return Math.sqrt(dx * dx + dy * dy) > MIN_DISTANCE;
+    });
+    
+    if (isFarEnough || attempts === maxAttempts - 1) {
+      return { x, y };
+    }
+    
+    attempts++;
+  }
+  
+  // Fallback position if we couldn't find a good spot
+  return {
+    x: padding + Math.random() * (width - 2 * padding),
+    y: padding + Math.random() * (height - 2 * padding)
+  };
+};
 
 export const FloatingPolygons = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -32,30 +83,55 @@ export const FloatingPolygons = () => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const controls = useAnimation();
+  const isTabletOrLarger = useMediaQuery('(min-width: 768px)');
 
   useEffect(() => {
     if (!containerRef.current) return;
     
     const { width, height } = containerRef.current.getBoundingClientRect();
-    // Create more spread out polygons
-    const newPolygons: Polygon[] = Array.from({ length: 32 }, (_, i) => {
-      const x = Math.random() * (width + 400) - 200; // Spread beyond viewport
-      const y = Math.random() * (height + 400) - 200;
-      return {
-        id: i,
-        x,
-        y,
-        baseX: x,
-        baseY: y,
+    const polygonCount = isTabletOrLarger ? 24 : 10;
+    const polygonsPerColor = Math.ceil(polygonCount / COLORS.length);
+    
+    const newPolygons: Polygon[] = [];
+    
+    // Ensure at least two polygons of each color
+    COLORS.forEach((color, colorIndex) => {
+      const colorCount = Math.max(2, Math.floor(polygonsPerColor));
+      
+      for (let i = 0; i < colorCount && newPolygons.length < polygonCount; i++) {
+        const position = generatePolygonPosition(width, height, newPolygons);
+        newPolygons.push({
+          id: newPolygons.length,
+          x: position.x,
+          y: position.y,
+          baseX: position.x,
+          baseY: position.y,
+          rotation: Math.random() * 360,
+          scale: 0.3 + Math.random() * 0.4,
+          color: color,
+          speed: 0.3 + Math.random() * 1.5
+        });
+      }
+    });
+    
+    // Fill remaining slots if any
+    while (newPolygons.length < polygonCount) {
+      const position = generatePolygonPosition(width, height, newPolygons);
+      newPolygons.push({
+        id: newPolygons.length,
+        x: position.x,
+        y: position.y,
+        baseX: position.x,
+        baseY: position.y,
         rotation: Math.random() * 360,
         scale: 0.3 + Math.random() * 0.4,
         color: COLORS[Math.floor(Math.random() * COLORS.length)],
         speed: 0.3 + Math.random() * 1.5
-      };
-    });
+      });
+    }
     
     setPolygons(newPolygons);
-  }, []);
+  }, [isTabletOrLarger]);
 
   const handleMouseMove = async (e: React.MouseEvent) => {
     const { left, top } = containerRef.current?.getBoundingClientRect() || { left: 0, top: 0 };

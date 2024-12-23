@@ -31,7 +31,7 @@ export default function Page() {
   return (
     <main className="relative flex flex-col min-h-[100dvh] space-y-10 overflow-hidden">
       <FloatingPolygons />
-      <section id="hero" className="relative pt-20 w-full">
+      <section id="hero" className="relative md:pt-20 w-full">
         <div className="mx-auto w-full max-w-6xl">
           <div className="section-blur">
             <div className="flex flex-col md:flex-row gap-8 items-center justify-between">
