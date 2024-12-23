@@ -89,7 +89,7 @@ export const FloatingPolygons = () => {
     if (!containerRef.current) return;
     
     const { width, height } = containerRef.current.getBoundingClientRect();
-    const polygonCount = isTabletOrLarger ? 24 : 10;
+    const polygonCount = isTabletOrLarger ? 24 : 8;
     const polygonsPerColor = Math.ceil(polygonCount / COLORS.length);
     
     const newPolygons: Polygon[] = [];

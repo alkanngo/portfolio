@@ -122,7 +122,7 @@ export const DATA = {
     {
       title: "Stockholm Business Region",
       href: "https://www.frojd.se/case/stockholm-business-region",
-      dates: "2022 - 2023",
+      dates: "2023",
       active: false,
       image: "/sbr.png",
       description:
@@ -172,7 +172,7 @@ export const DATA = {
     {
       title: "Swedish Breast Cancer Association",
       href: "https://www.frojd.se/case/brostcancerforbundet",
-      dates: "2022",
+      dates: "2023",
       active: false,
       image: "/bcf.png",
       description:
