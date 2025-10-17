@@ -64,7 +64,7 @@ export default function Page() {
         </div>
       </section>
 
-      <div className="mx-auto w-full max-w-4xl px-6">
+      <div className="mx-auto w-full max-w-4xl">
         <section id="about" className="section-blur mb-10">
           <BlurFade delay={BLUR_FADE_DELAY * 3}>
             <h2 className="text-4xl font-bold font-le-murmure mb-4">About</h2>

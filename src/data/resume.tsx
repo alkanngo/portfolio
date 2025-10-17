@@ -56,7 +56,7 @@ export const DATA = {
 
   work: [
     {
-      company: "Selected Access Ltd",
+      company: "Grand New World Ltd",
       href: "#",
       badges: [],
       location: "Remote",
@@ -64,7 +64,7 @@ export const DATA = {
       title: "Technical Lead",
       start: "Jun 2024",
       end: "Present",
-      description: "Led full-stack development, design, and technical strategy across two major platforms: a BuddyBoss-powered membership portal, and a Next.js-based OTC-listing platform featuring real-time investment tracking and automated compliance workflows."
+      description: "Led full-stack development, design, and technical strategy across four distinct digital platforms spanning climate-tech, legal-fintech, securities trading, and membership management. Architected and delivered end-to-end solutions using Next.js, TypeScript, and Supabase, implementing real-time data systems, payment integrations, and regulatory compliance workflows."
     },
     {
       company: "pxlprsche",
@@ -119,6 +119,30 @@ export const DATA = {
     }
   ],
   projects: [
+    {
+      title: "Ecozync",
+      href: "#",
+      dates: "2025",
+      active: false,
+      image: "/ecozync.png",
+      description: "Engineered a social-first habit-making carbon offsetting platform that gamifies climate action through community engagement and interactive animations. Built a comprehensive calculation engine with 500+ emission factors from EPA, DEFRA, and IPCC sources, ensuring instant results and complete privacy. Integrated Stripe subscriptions for verified Gold Standard carbon credit purchasing that directly supports planting trees in the Congo Basin rainforest and supports local communities. Features subscription tiers for personalized offsetting.",
+      technologies: [
+        "Next.js",
+        "TypeScript",
+        "Supabase",
+        "PostgreSQL",
+        "Stripe API",
+        "Framer Motion",
+        "Tailwind CSS",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://ecozync.com",
+          icon: <Icons.globe className="size-3" />
+        }
+      ]
+    },
     {
       title: "Stockholm Business Region",
       href: "https://www.frojd.se/case/stockholm-business-region",
