@@ -125,7 +125,7 @@ export const DATA = {
       dates: "2025",
       active: false,
       image: "/ecozync.png",
-      description: "Engineered a social-first habit-making carbon offsetting platform that gamifies climate action through community engagement and interactive animations. Built a comprehensive calculation engine with 500+ emission factors from EPA, DEFRA, and IPCC sources, ensuring instant results and complete privacy. Integrated Stripe subscriptions for verified Gold Standard carbon credit purchasing that directly supports planting trees in the Congo Basin rainforest and supports local communities. Features subscription tiers for personalized offsetting.",
+      description: "Engineered a social-first habit-making carbon offsetting platform that gamifies climate action through community engagement and interactive animations. Built a comprehensive calculation engine with 500+ emission factors from EPA, DEFRA, and IPCC sources, ensuring instant results and complete privacy. Integrated Stripe subscriptions for verified Gold Standard carbon credit purchasing that directly supports planting trees in the Congo Basin rainforest and supports local communities.",
       technologies: [
         "Next.js",
         "TypeScript",
