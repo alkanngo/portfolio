@@ -159,7 +159,6 @@ export const DATA = {
         "WebGL",
         "ThreeJS",
         "Framer Motion",
-        "Server-side Rendering",
       ],
       links: [
         {
